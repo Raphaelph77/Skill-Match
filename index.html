@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Match</title>
+  <link  rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Tela de Cadastro -->
+  <div id="telaCadastro">
+    <div class="cadastro-container">
+      <h2>Bem-vindo ao Skill Match</h2>
+      <input type="text" id="nomeCadastro" placeholder="Nome completo" required>
+      <input type="email" id="emailCadastro" placeholder="E-mail" required>
+      <input type="text" id="profissaoCadastro" placeholder="Profissão" required>
+      <input type="password" id="senhaCadastro" placeholder="Senha" required>
+      <button onclick="entrar()">Cadastrar</button>
+    </div>
+  </div>
+
+  <!-- Painel -->
+  <div id="painel">
+    <div class="navbar">
+      <div class="logo">Skill Match</div>
+      <div class="nav-buttons">
+        <button onclick="mostrar('perfil')">Perfil</button>
+        <button onclick="mostrar('post')">Post</button>
+        <button onclick="mostrar('seguindo')">Seguindo</button>
+        <button onclick="mostrar('pesquisar')">Pesquisar</button>
+      </div>
+    </div>
+
+    <!-- Seções -->
+    <section id="perfil" class="active">
+      <div class="profile">
+        <img src="https://i.pravatar.cc/150?img=1" alt="Foto de Perfil">
+        <h3 id="nomeUsuarioPerfil"></h3>
+        <p id="profissaoUsuarioPerfil"></p>
+      </div>
+    </section>
+
+    <section id="post">
+      <div class="post-form">
+        <div class="post-header">
+          <img src="https://i.pravatar.cc/100?img=12" alt="Usuário">
+          <strong id="nomeUsuarioPost"></strong>
+        </div>
+        <textarea id="postText" rows="3" placeholder="Compartilhe algo..."></textarea>
+
+        <div class="post-actions">
+          <div>
+            <input type="file" id="uploadMedia" accept="image/*">
+            <label for="uploadMedia">📎 Adicionar imagem</label>
+          </div>
+          <button onclick="publicarPost()">Publicar</button>
+        </div>
+      </div>
+      <div class="feed" id="feed"></div>
+    </section>
+
+    <section id="seguindo">
+      <div class="user-card">
+        <div class="user-info">
+          <img src="https://i.pravatar.cc/100?img=33" alt="Usuário">
+          <div>@usuario_exemplo</div>
+        </div>
+        <button class="follow-btn">Seguindo</button>
+      </div>
+    </section>
+
+    <section id="pesquisar">
+      <div class="search">
+        <input type="text" id="campoBusca" placeholder="Buscar pessoas ou serviços...">
+        <button onclick="buscar()">Pesquisar</button>
+      </div>
+      <div id="resultadoBusca"></div>
+    </section>
+  </div>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>
