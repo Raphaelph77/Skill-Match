@@ -1,0 +1,30 @@
+-- Script do Banco de Dados SkillMatch (com login + skills)
+CREATE DATABASE SkillMatch;
+USE SkillMatch;
+
+-- Tabela de Usuário
+CREATE TABLE usuario (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(120) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+-- Tabela de Skills (1 usuário → N skills)
+CREATE TABLE skill (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    descricao VARCHAR(255) NOT NULL,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    usuario_id BIGINT NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
+
+-- Dados iniciais (DML)
+INSERT INTO usuario (nome, email, senha)
+VALUES ('João', 'joao@skillmatch.com', '123456');
+
+INSERT INTO skill (descricao, usuario_id)
+VALUES
+('Java', 1),
+('React', 1),
+('Spring Boot', 1);
